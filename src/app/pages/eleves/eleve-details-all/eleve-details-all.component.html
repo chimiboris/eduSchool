@@ -1,0 +1,235 @@
+
+<div class="row mb-1 mr-0 custom-border m-2"> 
+   
+    <div class="custom-border-right col-md-1 p-1 text-center mb-1 mt-1" *ngIf="eleve">
+        <img class="rounded-circle" [src]="eleve.picture" width="80px" height="80px">
+    </div> 
+
+    <div class="row m-2" *ngIf="eleve">
+        <div class="card col-md-6" >
+            <h2 class="bg-info text-center ">Informations personnelles</h2>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Matricule</th>
+                            <td>
+                                <div>{{eleve.matricule}}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nom</th>
+                            <td>{{eleve.nom}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Prénom</th>
+                            <td>{{eleve.prenom}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email</th>
+                            <td>{{eleve.email}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date de naissance</th>
+                            <td>{{eleve.dateNaissance | date: "dd/MM/yyyy"}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lieu de naissance</th>
+                            <td>{{eleve.lieuNaissance }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Niveau</th>
+                            <td>{{eleve.niveau}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Spécialité</th>
+                            <td>{{eleve.specialite}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Adresse</th>
+                            <td>{{eleve.adresse}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sexe</th>
+                            <td>{{eleve.sexe}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Classe</th>
+                            <td>{{eleve.classe}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    
+        <div class="card col-md-6 ">
+            <h2 class="bg-info text-center ">Informations personnelles</h2>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Section</th>
+                            <td>{{eleve.section}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Type enseignement</th>
+                            <td>{{eleve.typeEnseignement}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nature enseignement</th>
+                            <td>{{eleve.natureEnseignement}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cycle</th>
+                            <td>{{eleve.cycle}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Téléphone</th>
+                            <td>{{eleve.telephone}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ville</th>
+                            <td>{{eleve.ville}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nationalité</th>
+                            <td>{{eleve.nationalite}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nom du père</th>
+                            <td>{{eleve.nomDuPere}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nom de la mère</th>
+                            <td>{{eleve.nomDeLaMere}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+</div>
+
+<div class="row m-2" *ngIf="eleve?.matieres">
+    <div class="card col-md-6 ">
+        <h2 class="bg-info text-center ">Liste des matières</h2>
+            <table class="table">
+                <tbody *ngFor="let matiere of eleve?.matieres">
+                <tr>
+                    <th scope="row">Matiere</th>
+                    <td>{{matiere.nomDeLaMatiere}}</td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+
+    <div class="card col-md-6" *ngIf="eleve?.enseignants">
+        <h2 class="bg-info text-center ">Liste des enseignants</h2>
+            <table class="table">
+                <tbody *ngFor="let enseignant of eleve?.enseignants">
+                    <tr>
+                        <th scope="row">Enseignant</th>
+                        <td>{{enseignant.nom}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+
+<div class="row m-2 ">
+    <div class="card col-md-12 ">
+        <h2 class="bg-info text-center "> Liste des notes</h2>
+            <table class="table">
+                <tbody *ngFor="let note of eleve?.notes ">
+                    <tr>
+                        <th scope="row">{{note.matiere}}:</th>
+                        <td>{{note.valeur}}</td>
+                        <td><b>Classe:</b> </td>
+                        <td>{{note.classe}}</td>
+                        <td><b>Séquence:</b> </td>
+                        <td>{{note.sequence}}</td>
+                        <td><b>Enseignant:</b> </td>
+                        <td>{{note.enseignant}}</td>
+                        <td><b>Note générale:</b> </td>
+                        <td>{{note.noteGenerale}}</td>
+                        <td><b>Dernière note:</b> </td>
+                        <td>{{note.premiereNote}}</td>
+                        <td><b>Première note:</b> </td>
+                        <td>{{note.derniereNote}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+
+</div>
+
+<div class="row m-2 ">
+    <div class="card col-md-12 ">
+        <h2 class="bg-info text-center ">Information sur la scolarité</h2>
+            <table class="table">
+                <tbody *ngFor="let scolarite of eleve?.scolarites ">
+                    <tr>
+                        <th scope="row">{{scolarite.datePaiement | date:"dd/MM/yyyy"}}</th>
+                        <td><b>Nom:</b> </td>
+                        <td>{{scolarite.nomEleve}}</td>
+                        <td><b>Prénom:</b> </td>
+                        <td>{{scolarite.prenomEleve}}</td>
+                        <td><b>Niveau:</b> </td>
+                        <td>{{scolarite.niveau}}</td>
+                        <td><b>Etat:</b> </td>
+                        <td>{{scolarite.etat}}</td>
+                        <td><b>Classe:</b> </td>
+                        <td>{{scolarite.classe}}</td>
+                        <td><b>Montant payé:</b> </td>
+                        <td>{{scolarite.montantPaye}}</td>
+                        <td><b>Reste à payer:</b> </td>
+                        <td>{{scolarite.resteAPayer}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+
+</div>
+
+<div class="">
+
+    <div class="col">
+        <button class="btn btn-info m-3" (click)="goToElevePage()">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+            Liste des élèves
+        </button>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+        </button>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Voulez-vous vraiment supprimer cet élève ?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" 
+                    data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i>&nbsp;Annuler
+                </button>
+                <button type="button" (click)="deleteEleve(eleve!)"  
+                    class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- <button class="btn btn-danger" (click)="deleteEleve(eleve!)">
+    <i class="fa-solid fa-trash-can"></i>&nbsp;
+    Supprimer
+</button> -->
+
+

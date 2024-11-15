@@ -1,0 +1,134 @@
+<div class="col m-lg-2 ">
+    <div class="col-md-12 mb-2">
+        <img src="assets/profile.jpg" class="rounded-circle" width="150px" height="150px">
+    </div>
+  
+    <form *ngIf="personnelForm" [formGroup]="personnelForm" >
+
+            <div class="col-md-12">
+                <div class="col-md-12 ">
+                    <h2><i class="fa-solid fa-circle-info blue-color"></i>&nbsp;Informations sur le personnel</h2>
+                </div>
+        
+                <div class="col-md-12">
+                    <div class="row">
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Nom</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Prénom</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Profession</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+        
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Adresse email</mat-label>
+                                <input matInput
+                                    placeholder="pat@example.com"
+                                    id="email" formControlName="email"
+                                    (blur)="updateErrorMessage()"
+                                    required>
+                                @if (emaill.invalid) {
+                                <mat-error>{{errorMessage}}</mat-error>
+                                }
+                            </mat-form-field>  
+                    </div>
+        
+                    <div class="row">
+                        <mat-form-field class="col-md-5">
+                            <mat-label>Diplome</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-2">
+                            <mat-label>Type de contrat</mat-label>
+                            <mat-select>
+                            @for (contrat of contrats; track contrat) {
+                                <mat-option [value]="contrat.value">{{contrat.viewValue}}</mat-option>
+                            }
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-5">
+                            <mat-label>Début</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        
+                    </div>
+
+                        <div class="row">
+                            <mat-form-field class="col-md-2">
+                                <mat-label>Date de naaissance</mat-label>
+                                <input matInput [matDatepicker]="picker">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+                            </mat-form-field>
+
+                            <mat-form-field class="col-md-10">
+                                <mat-label>Lieu de naissance</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+            
+                        </div>
+        
+                    <div class="row">
+
+
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Adresse</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Téléphone</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+
+                    </div>
+        
+                    <div class="row">
+
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Ville</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Nationalité</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Pays de réidence</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+
+                    </div>
+
+                </div>
+            </div>
+        
+            <div class="col-md-12 text-end ">
+                <button class="btn btn-danger" (click)="cancel()">
+                    <i class="fa-solid fa-ban"></i>&nbsp;
+                    Annuler
+                </button>
+        
+                <button class="btn btn-primary m-lg-3">
+                    <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+                    Enregistrer
+                </button>
+            </div>
+        </form>
+</div>
+  
+  

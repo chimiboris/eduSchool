@@ -1,0 +1,102 @@
+
+<div class="row mb-1 mr-0 custom-border m-2"> 
+   
+    <div class="custom-border-right col-md-1 p-1 text-center mb-1 mt-1" *ngIf="parent">
+        <img class="rounded-circle" [src]="parent.picture" width="80px" height="80px">
+    </div> 
+
+    <div class="row m-2" *ngIf="parent">
+        <div class="card col-md-6" >
+            <h2 class="bg-info text-center ">Informations personnelles</h2>
+                <table class="table">
+                    <tbody>
+                       
+                        <tr>
+                            <th scope="row">Nom</th>
+                            <td>{{parent.nom}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Prénom</th>
+                            <td>{{parent.prenom}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email</th>
+                            <td>{{parent.adresseEmail}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sexe</th>
+                            <td>{{parent.sexe}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Téléphone</th>
+                            <td>{{parent.telephone}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    
+        <div class="card col-md-6 ">
+            <h2 class="bg-info text-center ">Informations sur la profession</h2>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Profession</th>
+                            <td>{{parent.profession}}</td>
+                        </tr> 
+                        <tr>
+                            <th scope="row">Adresse</th>
+                            <td>{{parent.adresse}}</td>
+                        </tr>     
+                        <tr>
+                            <th scope="row">Nationalité</th>
+                            <td>{{parent.nationalite}}</td>
+                        </tr> 
+                    </tbody>
+                </table>
+        </div>
+</div>
+
+</div>
+
+<div class="">
+
+    <div class="col">
+        <button class="btn btn-info m-3" (click)="goToParentPage()">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+            Liste des parents
+        </button>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+        </button>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Voulez-vous vraiment supprimer le parent ?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" 
+                    data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i>&nbsp;Annuler
+                </button>
+                <button type="button" (click)="deleteParent(parent!)"  
+                    class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+

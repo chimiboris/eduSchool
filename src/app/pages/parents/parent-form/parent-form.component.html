@@ -1,0 +1,153 @@
+<div class="col m-lg-2 ">
+  
+    <form  *ngIf="parentForm" [formGroup]="parentForm" (ngSubmit)="onSubmit()" >
+
+        <div class="col-md-12 mb-2" *ngIf="parent">
+            <img [src]="parent.picture" class="rounded-circle" width="150px" height="150px">
+        </div>
+
+        <mat-form-field class="col-md-3"> 
+            <mat-label>Image</mat-label>
+            <input id="picture" formControlName="picture" type="url" matInput>
+                @if (parentForm.get('picture')?.invalid && parentForm.get('picture')?.touched && parentForm.get('picture')?.errors?.['required']) {
+                        <mat-error>L'image est <strong>obligatoire</strong></mat-error>
+                }
+        </mat-form-field>
+
+        <div class="col-md-12">
+            <div class="col-md-12 ">
+                <h2><i class="fa-solid fa-circle-info blue-color"></i>&nbsp;{{pageTitle}}</h2>
+            </div>
+    
+            
+                <div class="col-md-12">
+                    <div class="row">
+                    
+                        <mat-form-field class="col-md-5">
+                            <mat-label>Nom</mat-label>
+                            <input id="nom" formControlName="nom" matInput>
+                            @if (parentForm.get('nom')?.invalid && parentForm.get('nom')?.touched && parentForm.get('nom')?.errors?.['required']) {
+                                <mat-error>Le nom est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (parentForm.get('nom')?.invalid && parentForm.get('nom')?.touched && parentForm.get('nom')?.errors?.['minlength']) {
+                                <mat-error>Le nom doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (parentForm.get('nom')?.invalid && parentForm.get('nom')?.touched && parentForm.get('nom')?.errors?.['maxlength']) {
+                                <mat-error>Le nom doit avoir au maximumn 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="col-md-5">
+                            <mat-label>Prénom</mat-label>
+                            <input id="prenom" formControlName="prenom" matInput>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-2">
+                            <mat-label>Sexe</mat-label>
+                            <mat-select formControlName="sexe" required>
+                              <!-- <mat-option>--</mat-option> -->
+                              @for (sexe of sexes; track sexe) {
+                                <mat-option [value]="sexe.value">{{sexe.viewValue}}</mat-option>
+                              }
+                            </mat-select>
+                            @if (sexeControl.hasError('required')) {
+                              <mat-error>Sexe <strong>obligatoire</strong></mat-error>
+                            }
+                            <mat-hint>{{sexeControl.value?.viewValue}}</mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Profession</mat-label>
+                            <input id="profession" formControlName="profession" matInput>
+                            @if (parentForm.get('profession')?.invalid && parentForm.get('profession')?.touched && parentForm.get('profession')?.errors?.['required']) {
+                                <mat-error>La profession est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (parentForm.get('profession')?.invalid && parentForm.get('profession')?.touched && parentForm.get('profession')?.errors?.['minlength']) {
+                                <mat-error>La profession doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (parentForm.get('profession')?.invalid && parentForm.get('profession')?.touched && parentForm.get('profession')?.errors?.['maxlength']) {
+                                <mat-error>La profession doit avoir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Nationalité</mat-label>
+                            <input id="nationalite" formControlName="nationalite" matInput>
+                            @if (parentForm.get('nationalite')?.invalid && parentForm.get('nationalite')?.touched && parentForm.get('nationalite')?.errors?.['required']) {
+                                <mat-error>La nationalité est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (parentForm.get('nationalite')?.invalid && parentForm.get('nationalite')?.touched && parentForm.get('nationalite')?.errors?.['minlength']) {
+                                <mat-error>La nationalité doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (parentForm.get('nationalite')?.invalid && parentForm.get('nationalite')?.touched && parentForm.get('nationalite')?.errors?.['maxlength']) {
+                                <mat-error>La nationalité doit avoir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Adresse email</mat-label>
+                                <input matInput
+                                    placeholder="pat@example.com"
+                                    id="adresseEmail" formControlName="adresseEmail"
+                                    required>
+                                    @if (email1.hasError('email') && !email1.hasError('required')) {
+                                        <mat-error>Veuillez entrer une adresse email valide</mat-error>
+                                      }
+                                      @if (email1.hasError('required')) {
+                                        <mat-error>Email <strong>obligatoire</strong></mat-error>
+                                      }
+                        </mat-form-field>  
+                    </div>
+        
+                    <div class="row">
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Adresse</mat-label>
+                            <input id="adresse" formControlName="adresse" matInput>
+                            @if (parentForm.get('adresse')?.invalid && parentForm.get('adresse')?.touched && parentForm.get('adresse')?.errors?.['required']) {
+                                <mat-error>L'adresse est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (parentForm.get('adresse')?.invalid && parentForm.get('adresse')?.touched && parentForm.get('adresse')?.errors?.['minlength']) {
+                                <mat-error>L'adresse doit contenir au minimum 3 caractères</mat-error>
+                            }
+                            @if (parentForm.get('adresse')?.invalid && parentForm.get('adresse')?.touched && parentForm.get('adresse')?.errors?.['maxlength']) {
+                                <mat-error>L'adresse doit contenir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Téléphone</mat-label>
+                            <input id="telephone" formControlName="telephone" matInput>
+                            @if (parentForm.get('telephone')?.invalid && parentForm.get('telephone')?.touched && parentForm.get('telephone')?.errors?.['required']) {
+                                <mat-error>Le numéro de téléphone est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (parentForm.get('telephone')?.invalid && parentForm.get('telephone')?.touched && parentForm.get('telephone')?.errors?.['minlength']) {
+                                <mat-error>Le numéro doit contenir au minimum 3 caractères</mat-error>
+                            }
+                            @if (parentForm.get('telephone')?.invalid && parentForm.get('telephone')?.touched && parentForm.get('telephone')?.errors?.['maxlength']) {
+                                <mat-error>Le numéro doit contenir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-12 text-end ">
+                <button class="btn btn-danger" (click)="cancel()">
+                    <i class="fa-solid fa-ban"></i>&nbsp;
+                    Annuler
+                </button>
+        
+                <button class="btn btn-primary m-lg-3" 
+                    type="submit" 
+                    
+                    >
+                    <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+                    Enregistrer
+                </button>
+            </div>
+
+    </form>
+        
+</div>
+ 
+  

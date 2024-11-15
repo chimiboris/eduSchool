@@ -1,0 +1,42 @@
+<div class="row m-3 ">
+    <div class="card col-md-4 text-center me-3  ">
+        <div class="col">
+            <div class="mb-3 mt-3 ">
+                <img src="assets/profile.jpg" class="rounded-circle" width="200px" height="200px">
+            </div>
+            <div class="mb-3 ">
+                <h2>Nom Prénom</h2>
+                <small class="form-text text-muted">Adresse, Ville, Code postal </small>
+            </div>
+        </div>
+    </div>
+    <div class="card col-md-7 ">
+        <mat-form-field class="col-md-12 mt-3 ">
+            <mat-label>Ancien mot de passe</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="col-md-12">
+            <mat-label>Nouveau mot de passe</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="col-md-12">
+            <mat-label>Confirmer mot de passe</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <div class="text-end ">
+            <button class="btn btn-danger" (click)="cancel()">
+                <i class="fa-solid fa-ban"></i>&nbsp;
+                Annuler
+            </button>
+        
+            <button class="btn btn-primary m-lg-3">
+                <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+                Enregistrer
+            </button>
+        </div>
+
+    </div>
+
+</div>
+

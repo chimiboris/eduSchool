@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="card">
+            <div class="card-content">
+                <div class="input-field">
+                    <mat-form-field class="col-md-12">
+                        <mat-label>Rechercher un élève ici</mat-label>
+                        <input #searchBox 
+                        (keyup)="search(searchBox.value)" matInput>
+                    </mat-form-field>
+                    <!-- <input type="text" class="form-control" placeholder="Rechercher un élève" 
+                    aria-label="Rechercher" aria-describedby="addon-wrapping" 
+                    #searchBox 
+                    (keyup)="search(searchBox.value)"
+                    > -->
+
+                    <div class="collection">
+                        <a 
+                            *ngFor="let eleve of eleve$ | async"
+                            (click)="goToDetail(eleve)"
+                            class="collection-item"
+                        >
+                            {{ eleve.nom }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

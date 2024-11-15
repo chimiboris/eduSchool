@@ -1,0 +1,13 @@
+a{
+    cursor: pointer !important;
+}
+
+.paginator {
+    display: flex;
+    align-items: center;
+    justify-content: center!important;
+    padding: 0 8px;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: var(--mat-paginator-container-size);
+}

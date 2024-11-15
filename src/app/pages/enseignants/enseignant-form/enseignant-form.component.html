@@ -1,0 +1,244 @@
+<div class="col m-lg-2 ">
+  
+    <form  *ngIf="enseignantForm" [formGroup]="enseignantForm" (ngSubmit)="onSubmit()" >
+
+        <div class="col-md-12 mb-2" *ngIf="enseignant">
+            <img [src]="enseignant.picture" class="rounded-circle" width="150px" height="150px">
+        </div>
+
+        <mat-form-field class="col-md-3"> 
+            <mat-label>Image</mat-label>
+            <input id="picture" formControlName="picture" type="url" matInput>
+                @if (enseignantForm.get('picture')?.invalid && enseignantForm.get('picture')?.touched && enseignantForm.get('picture')?.errors?.['required']) {
+                        <mat-error>L'image est <strong>obligatoire</strong></mat-error>
+                }
+        </mat-form-field>
+
+        <div class="col-md-12">
+            <div class="col-md-12 ">
+                <h2><i class="fa-solid fa-circle-info blue-color"></i>&nbsp;{{pageTitle}}</h2>
+            </div>
+    
+            
+                <div class="col-md-12">
+                    <div class="row">
+                    
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Nom</mat-label>
+                            <input id="nom" formControlName="nom" matInput>
+                            @if (enseignantForm.get('nom')?.invalid && enseignantForm.get('nom')?.touched && enseignantForm.get('nom')?.errors?.['required']) {
+                                <mat-error>Le nom est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('nom')?.invalid && enseignantForm.get('nom')?.touched && enseignantForm.get('nom')?.errors?.['minlength']) {
+                                <mat-error>Le nom doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('nom')?.invalid && enseignantForm.get('nom')?.touched && enseignantForm.get('nom')?.errors?.['maxlength']) {
+                                <mat-error>Le nom doit avoir au maximumn 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Prénom</mat-label>
+                            <input id="prenom" formControlName="prenom" matInput>
+                        </mat-form-field>
+        
+                        <mat-form-field class="col-md-4">
+                            <mat-label>Adresse email</mat-label>
+                                <input matInput
+                                    placeholder="pat@example.com"
+                                    id="adresseEmail" formControlName="adresseEmail"
+                                    required>
+                                    @if (email1.hasError('email') && !email1.hasError('required')) {
+                                        <mat-error>Veuillez entrer une adresse email valide</mat-error>
+                                      }
+                                      @if (email1.hasError('required')) {
+                                        <mat-error>Email <strong>obligatoire</strong></mat-error>
+                                      }
+                            </mat-form-field>  
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field class="col-md-2">
+                            <mat-label>Sexe</mat-label>
+                            <mat-select formControlName="sexe" required>
+                              <!-- <mat-option>--</mat-option> -->
+                              @for (sexe of sexes; track sexe) {
+                                <mat-option [value]="sexe.value">{{sexe.viewValue}}</mat-option>
+                              }
+                            </mat-select>
+                            @if (sexeControl.hasError('required')) {
+                              <mat-error>Sexe <strong>obligatoire</strong></mat-error>
+                            }
+                            <mat-hint>{{sexeControl.value?.viewValue}}</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-5">
+                            <mat-label>Département</mat-label>
+                            <input id="departement" formControlName="departement" matInput>
+                            @if (enseignantForm.get('departement')?.invalid && enseignantForm.get('departement')?.touched && enseignantForm.get('departement')?.errors?.['required']) {
+                                <mat-error>Le département est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('departement')?.invalid && enseignantForm.get('departement')?.touched && enseignantForm.get('departement')?.errors?.['minlength']) {
+                                <mat-error>Le département doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('departement')?.invalid && enseignantForm.get('departement')?.touched && enseignantForm.get('departement')?.errors?.['maxlength']) {
+                                <mat-error>Le département doit avoir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="col-md-5">
+                            <mat-label>Profession</mat-label>
+                            <input id="profession" formControlName="profession" matInput>
+                            @if (enseignantForm.get('profession')?.invalid && enseignantForm.get('profession')?.touched && enseignantForm.get('profession')?.errors?.['required']) {
+                                <mat-error>La profession est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('profession')?.invalid && enseignantForm.get('profession')?.touched && enseignantForm.get('profession')?.errors?.['minlength']) {
+                                <mat-error>La profession doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('profession')?.invalid && enseignantForm.get('profession')?.touched && enseignantForm.get('profession')?.errors?.['maxlength']) {
+                                <mat-error>La profession doit avoir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field class="col-md-3">
+                            <mat-label>Matière 1</mat-label>
+                            <input id="matiere1" formControlName="matiere1" matInput>
+                            @if (enseignantForm.get('matiere1')?.invalid && enseignantForm.get('matiere1')?.touched && enseignantForm.get('matiere1')?.errors?.['required']) {
+                                <mat-error>La matière est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('matiere1')?.invalid && enseignantForm.get('matiere1')?.touched && enseignantForm.get('matiere1')?.errors?.['minlength']) {
+                                <mat-error>La matière doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('matiere1')?.invalid && enseignantForm.get('matiere1')?.touched && enseignantForm.get('matiere1')?.errors?.['maxlength']) {
+                                <mat-error>La matière doit avoir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="col-md-3">
+                            <mat-label>Matière 2</mat-label>
+                            <input id="matiere2" formControlName="matiere2" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-2">
+                            <mat-label>Matière 3</mat-label>
+                            <input id="matiere3" formControlName="matiere3" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-2">
+                            <mat-label>Matière 4</mat-label>
+                            <input id="matiere4" formControlName="matiere4" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-2">
+                            <mat-label>Matière 5</mat-label>
+                            <input id="matiere5" formControlName="matiere5" matInput>
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="row">
+                        <mat-form-field class="col-md-2">
+                            <mat-label>Date de naissance</mat-label>
+                            <input id="dateNaissance" formControlName="dateNaissance" matInput [matDatepicker]="picker">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            @if (enseignantForm.get('dateNaissance')?.invalid && enseignantForm.get('dateNaissance')?.touched && enseignantForm.get('dateNaissance')?.errors?.['required']) {
+                                <mat-error>La date de naissance est <strong>obligatoire</strong></mat-error>
+                            }
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+                        </mat-form-field>
+        
+                        <mat-form-field class="col-md-10">
+                            <mat-label>Lieu de naissance</mat-label>
+                            <input id="lieuNaissance" formControlName="lieuNaissance" matInput>
+                            @if (enseignantForm.get('lieuNaissance')?.invalid && enseignantForm.get('lieuNaissance')?.touched && enseignantForm.get('lieuNaissance')?.errors?.['required']) {
+                                <mat-error>Lieu de naissance est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('lieuNaissance')?.invalid && enseignantForm.get('lieuNaissance')?.touched && enseignantForm.get('lieuNaissance')?.errors?.['minlength']) {
+                                <mat-error>Le lieu de naissance doit avoir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('lieuNaissance')?.invalid && enseignantForm.get('lieuNaissance')?.touched && enseignantForm.get('lieuNaissance')?.errors?.['maxlength']) {
+                                <mat-error>Le lieu de naissance doit avoir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+        
+                        
+                    </div>
+        
+                    <div class="row">
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Adresse</mat-label>
+                            <input id="adresse" formControlName="adresse" matInput>
+                            @if (enseignantForm.get('adresse')?.invalid && enseignantForm.get('adresse')?.touched && enseignantForm.get('adresse')?.errors?.['required']) {
+                                <mat-error>L'adresse est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('adresse')?.invalid && enseignantForm.get('adresse')?.touched && enseignantForm.get('adresse')?.errors?.['minlength']) {
+                                <mat-error>L'adresse doit contenir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('adresse')?.invalid && enseignantForm.get('adresse')?.touched && enseignantForm.get('adresse')?.errors?.['maxlength']) {
+                                <mat-error>L'adresse doit contenir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Téléphone</mat-label>
+                            <input id="telephone" formControlName="telephone" matInput>
+                            @if (enseignantForm.get('telephone')?.invalid && enseignantForm.get('telephone')?.touched && enseignantForm.get('telephone')?.errors?.['required']) {
+                                <mat-error>Le numéro de téléphone est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('telephone')?.invalid && enseignantForm.get('telephone')?.touched && enseignantForm.get('telephone')?.errors?.['minlength']) {
+                                <mat-error>Le numéro doit contenir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('telephone')?.invalid && enseignantForm.get('telephone')?.touched && enseignantForm.get('telephone')?.errors?.['maxlength']) {
+                                <mat-error>Le numéro doit contenir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Ville</mat-label>
+                            <input id="ville" formControlName="ville" matInput>
+                            @if (enseignantForm.get('ville')?.invalid && enseignantForm.get('ville')?.touched && enseignantForm.get('ville')?.errors?.['required']) {
+                                <mat-error>La ville est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('ville')?.invalid && enseignantForm.get('ville')?.touched && enseignantForm.get('ville')?.errors?.['minlength']) {
+                                <mat-error>La ville doit contenir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('ville')?.invalid && enseignantForm.get('ville')?.touched && enseignantForm.get('ville')?.errors?.['maxlength']) {
+                                <mat-error>La ville doit contenir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+        
+                        <mat-form-field class="col-md-6">
+                            <mat-label>Nationalité</mat-label>
+                            <input id="nationalite" formControlName="nationalite" matInput>
+                            @if (enseignantForm.get('nationalite')?.invalid && enseignantForm.get('nationalite')?.touched && enseignantForm.get('nationalite')?.errors?.['required']) {
+                                <mat-error>La nationalité est <strong>obligatoire</strong></mat-error>
+                            }
+                            @if (enseignantForm.get('nationalite')?.invalid && enseignantForm.get('nationalite')?.touched && enseignantForm.get('nationalite')?.errors?.['minlength']) {
+                                <mat-error>La nationalité doit contenir au minimum 3 caractères</mat-error>
+                            }
+                            @if (enseignantForm.get('nationalite')?.invalid && enseignantForm.get('nationalite')?.touched && enseignantForm.get('nationalite')?.errors?.['maxlength']) {
+                                <mat-error>La nationalité doit contenir au maximum 50 caractères</mat-error>
+                            }
+                        </mat-form-field>
+                    </div>
+                    
+                </div>
+            </div>
+        
+            <div class="col-md-12 text-end ">
+                <button class="btn btn-danger" (click)="cancel()">
+                    <i class="fa-solid fa-ban"></i>&nbsp;
+                    Annuler
+                </button>
+        
+                <button class="btn btn-primary m-lg-3" 
+                    type="submit" 
+                    
+                    >
+                    <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+                    Enregistrer
+                </button>
+            </div>
+
+    </form>
+        
+</div>
+ 
+  

@@ -1,0 +1,68 @@
+<div class="col m-lg-2 ">
+  
+    <div class="col-md-12">
+        <div class="col-md-12 ">
+            <h2><i class="fa-solid fa-circle-info blue-color"></i>&nbsp;Informations sur la scolarité</h2>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-md-3">
+                <mat-label>Date de paiement</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Nom de l'élève</mat-label>
+                <input matInput>
+            </mat-form-field> 
+            <mat-form-field class="col-md-3">
+                <mat-label>Prénom de l'élève</mat-label>
+                <input matInput>
+            </mat-form-field>  
+            <mat-form-field class="col-md-3">
+                <mat-label>Niveau</mat-label>
+                <input matInput>
+            </mat-form-field> 
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-md-3">
+                <mat-label>Etat</mat-label>
+                <mat-select>
+                  @for (etat of etats; track etat) {
+                    <mat-option [value]="etat.value">{{etat.viewValue}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Classe</mat-label>
+                <input matInput>
+            </mat-form-field> 
+            <mat-form-field class="col-md-3">
+                <mat-label>Montant payé</mat-label>
+                <input matInput>
+            </mat-form-field> 
+            <mat-form-field class="col-md-3">
+                <mat-label>Reste à payer</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+         
+    </div>
+  
+    <div class="col-md-12 text-end ">
+        <button class="btn btn-danger" (click)="cancel()">
+            <i class="fa-solid fa-ban"></i>&nbsp;
+            Annuler
+        </button>
+  
+        <button class="btn btn-primary m-lg-3">
+            <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+            Enregistrer
+        </button>
+    </div>
+  </div>
+  
+  

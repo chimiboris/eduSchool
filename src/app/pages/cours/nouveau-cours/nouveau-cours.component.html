@@ -1,0 +1,75 @@
+<div class="col m-lg-2 ">
+  
+    <div class="col-md-12">
+        <div class="col-md-12 ">
+            <h2><i class="fa-solid fa-circle-info blue-color"></i>&nbsp;Informations sur le cours</h2>
+        </div>
+
+
+        <div class="row">
+            <mat-form-field class="col-md-3">
+                <mat-label>Nom</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Niveau</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Spécialité</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Salle</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-md-4">
+                <mat-label>Nombre de crédit</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Durée</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Enseignant</mat-label>
+                <input matInput>
+            </mat-form-field>  
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-md-4">
+                <mat-label>Choisir une date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Heure début</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Heure fin</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+    </div>
+  
+    <div class="col-md-12 text-end ">
+        <button class="btn btn-danger" (click)="cancel()">
+            <i class="fa-solid fa-ban"></i>&nbsp;
+            Annuler
+        </button>
+  
+        <button class="btn btn-primary m-lg-3">
+            <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+            Enregistrer
+        </button>
+    </div>
+  </div>
+  
+  

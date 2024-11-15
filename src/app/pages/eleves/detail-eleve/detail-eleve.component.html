@@ -1,0 +1,121 @@
+<div class="row mb-1 mr-0 custom-border" *ngFor="let eleve of eleveList">
+
+
+    <div class="custom-border-right col-md-1 p-1 text-center mb-1 mt-1 ">
+        <img class="rounded-circle" [src]="eleve.picture" width="80px" height="80px">
+    </div>
+
+    <!--details eleve-->
+    <div class="col-md-3 custom-border-right mb-1 mt-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-1"><i class="fa-solid fa-circle-info blue-color"></i></div> 
+                <div class="col-md-11"><b>Matricule :</b> &nbsp; {{ eleve.matricule }}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-circle-user blue-color"></i></div>
+                <div class="col-md-11"><b>Nom :</b> &nbsp; {{ eleve.nom }}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-circle-user blue-color"></i></div>
+                <div class="col-md-11"><b>Prénom :</b> &nbsp; {{ eleve.prenom }}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-cake-candles blue-color"></i></div>
+                <div class="col-md-11"><b>Date naissance :</b> &nbsp; {{ eleve.dateNaissance | date:"dd/MM/yyyy"}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 custom-border-right mb-1 mt-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-1"><i class="fa-solid fa-person-running blue-color"></i></div> 
+                <div class="col-md-11"><b>Niveau :</b> &nbsp; {{ eleve.niveau }}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-section blue-color"></i></div>
+                <div class="col-md-11"><b>Spécialité :</b> &nbsp; {{ eleve.specialite }}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-location-dot blue-color"></i></div>
+                <div class="col-md-11"><b>Adresse :</b> &nbsp; {{ eleve.adresse }}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-genderless blue-color"></i></div>
+                <div class="col-md-11"><b>Sexe :</b> &nbsp; {{eleve.sexe}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 custom-border-right mb-1 mt-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-1"><i class="fa-solid fa-house blue-color"></i></div>
+                <div class="col-md-11"><b>Classe :</b> &nbsp; {{eleve.classe}}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-person-chalkboard blue-color"></i></div> 
+                <div class="col-md-11"><b>Liste des enseignants :</b></div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-book-open blue-color"></i></div>
+                <div class="col-md-11"><b>Liste des matières</b></div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-1"><i class="fa-solid fa-marker blue-color"></i></div>
+                <div class="col-md-11"><b>Liste des notes</b></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Boutons d'action-->
+    <div class="col-md-2 mb-1 mt-1">
+        <div class="row">
+          
+            <div class="col-md-3">
+                <button type="button" class="btn btn-link text-decoration-none" 
+                        (click)="detailStudent(eleve)">
+                    <i class="fa-solid fa-table-list"></i>&nbsp;Détails
+                </button>
+            </div>   
+
+            <div class="col-md-3">
+                <button type="button" class="btn btn-link text-decoration-none" (click)="goToEditEleve(eleve)">
+                    <i class="fa-solid fa-pencil"></i>&nbsp;Modifier
+                </button>
+            </div>
+
+            <div class="col-md-4 ms-2">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-link text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+                </button>
+        
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Voulez-vous vraiment supprimer cet élève ?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" 
+                                data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i>&nbsp;Annuler
+                            </button>
+                            <button type="button" (click)="deleteEleve(eleve)" routerLink="/dashboard/eleves" 
+                                class="btn btn-danger" data-bs-dismiss="modal">
+                                <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

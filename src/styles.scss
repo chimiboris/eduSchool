@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+// @import "~@angular/material/prebuilt-themes/indigo-pink.scss";
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+html, body {
+    background-color: #c7d6e4 !important ;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body{
+    background-color: #eff2f5 !important; 
+}
+.background-grey{
+    background-color: #eff2f5 !important; 
+}
+.border-none{
+    border: none !important;
+}
+.min-height-80{
+    min-height: 80px;
+}
+a{
+    text-decoration: none!important;
+}
+a:hover{
+    text-decoration: underline!important;
+}
+
+.custom-border-right{
+    border-right: 2px solid  #9ca1a6 !important;   
+}
+.custom-border{
+    border: solid #9ca1a6;
+    border-radius: 5px;
+}
+.blue-color{
+    color: #037bfe
+}
+button.example-custom-date-class {
+    background: orange;
+    border-radius: 100%;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100%;
+    max-height: 50px;
+    z-index: 0;
+}

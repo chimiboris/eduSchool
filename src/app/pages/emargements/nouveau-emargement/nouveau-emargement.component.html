@@ -1,0 +1,64 @@
+<div class="col m-lg-2 ">
+  
+    <div class="col-md-12">
+        <div class="col-md-12 ">
+            <h2><i class="fa-solid fa-circle-info blue-color"></i>&nbsp;Informations sur l'émargement</h2>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-md-3">
+                <mat-label>Date de l'émargement</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Heure d'émargement</mat-label>
+                <input matInput>
+            </mat-form-field> 
+            <mat-form-field class="col-md-3">
+                <mat-label>Période concernant l'émargement</mat-label>
+                <input matInput>
+            </mat-form-field> 
+            <mat-form-field class="col-md-3">
+                <mat-label>Nom de l'enseignant</mat-label>
+                <input matInput>
+            </mat-form-field> 
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-md-3">
+                <mat-label>Matière</mat-label>
+                <textarea matInput> </textarea>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Cours</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Leçon</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+                <mat-label>Salle de classe</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+         
+    </div>
+  
+    <div class="col-md-12 text-end ">
+        <button class="btn btn-danger" (click)="cancel()">
+            <i class="fa-solid fa-ban"></i>&nbsp;
+            Annuler
+        </button>
+  
+        <button class="btn btn-primary m-lg-3">
+            <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+            Enregistrer
+        </button>
+    </div>
+  </div>
+  
+  

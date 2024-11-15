@@ -1,0 +1,97 @@
+<div class="row mb-1 mr-0 custom-border" *ngFor="let parent of parentList">
+    
+    <div class="custom-border-right col-md-1 p-1 text-center mb-1 mt-1 ">
+        <img class="rounded-circle" [src] ="parent.picture" width="80px" height="80px">
+    </div>
+
+    <!--details eleve-->
+    <div class="col-md-4 custom-border-right mb-1 mt-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-1"><i class="fa-solid fa-circle-user blue-color"></i></div>
+                <div class="col-md-11"><b>Nom :</b> &nbsp; {{ parent.nom }} </div>  
+            </div>
+            <div class="row mt-3 ">
+                <div class="col-md-1"><i class="fa-solid fa-circle-user blue-color"></i></div>
+                <div class="col-md-11"> <b>Prénom :</b> &nbsp; {{ parent.prenom }} </div> 
+            </div>
+            <div class="row mt-3 ">
+                <div class="col-md-1"><i class="fa-solid fa-person-digging blue-color"></i></div>
+                <div class="col-md-11"><b>Profession :</b> &nbsp; {{ parent.profession }} </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5 custom-border-right mb-1 mt-1">
+        <div class="col">
+            <div class="row">
+                <div class="col-md-1"><i class="fa-solid fa-envelope blue-color"></i></div>
+                <div class="col-md-11"><b>Adresse email</b> &nbsp; {{ parent.adresseEmail }} </div> 
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-1"><i class="fa-solid fa-location-dot blue-color"></i></div>
+                <div class="col-md-11"><b>Adresse</b> &nbsp; {{ parent.adresse }} </div> 
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-1"><i class="fa-solid fa-phone blue-color"></i></div>
+                <div class="col-md-11"><b>Téléphone</b> &nbsp; {{ parent.telephone }} </div> 
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-1"><i class="fa-solid fa-phone blue-color"></i></div>
+                <div class="col-md-11"><b>Liste de ses enfants</b> &nbsp; {{ parent.listeDesEnfants }} </div> 
+            </div>
+        </div>
+    </div>
+
+
+    <!--Boutons d'action-->
+    <div class="col-md-2 mb-1 mt-1">
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-link text-decoration-none" 
+                        (click)="detailParent(parent!)">
+                    <i class="fa-solid fa-table-list"></i>&nbsp;Détails
+                </button>
+            </div>   
+            <div class="col-md-3">
+                <button type="button" class="btn btn-link text-decoration-none"
+                (click)="goToEditParent(parent)">
+                    <i class="fa-solid fa-pencil"></i>&nbsp;Modifier
+                </button>
+            </div>
+            <div class="col-md-4 ms-2">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-link text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+                </button>
+        
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Voulez-vous vraiment supprimer le parent ?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" 
+                                data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i>&nbsp;Annuler
+                            </button>
+                            <button type="button" (click)="deleteParent(parent)" routerLink="/dashboard/parents" 
+                                class="btn btn-danger" data-bs-dismiss="modal">
+                                <i class="fa-solid fa-trash-can"></i>&nbsp;Supprimer
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    
+</div>
+

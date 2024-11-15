@@ -1,0 +1,57 @@
+<div class="col m-lg-2 ">
+  
+    <div class="col-md-12">
+        <div class="col-md-12 ">
+            <h2><i class="fa-solid fa-circle-info blue-color"></i>&nbsp;Informations sur l'observation de l'élève</h2>
+        </div>
+
+
+        <div class="row">
+            <mat-form-field class="col-md-4">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Classe l'élève</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Nom de l'élève</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-md-4">
+                <mat-label>Nom de l'enseignant</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Observation / Sanction attribuée</mat-label>
+                <textarea matInput placeholder="Ex absent / discipliné / troubleur..."></textarea>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+                <mat-label>Laisser un commentaire</mat-label>
+                <textarea matInput placeholder="Ex. Description de la scène..."></textarea>
+              </mat-form-field>
+        </div>
+    
+    </div>
+  
+    <div class="col-md-12 text-end ">
+        <button class="btn btn-danger" (click)="cancel()">
+            <i class="fa-solid fa-ban"></i>&nbsp;
+            Annuler
+        </button>
+  
+        <button class="btn btn-primary m-lg-3">
+            <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+            Enregistrer
+        </button>
+    </div>
+  </div>
+  
+  
