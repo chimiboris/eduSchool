@@ -7,6 +7,7 @@ import { MaterialModule } from '../../material/material.module';
 import { BoutonActionModule } from '../../composants/bouton-action/bouton-action.module';
 import { PersonnelDetailAllComponent } from './personnel-detail-all/personnel-detail-all.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SearchPersonnelComponent } from './search-personnel/search-personnel.component';
 
 
 
@@ -16,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NouveauPersonnelComponent,
     DetailPersonnelComponent,
     PersonnelDetailAllComponent,
+    SearchPersonnelComponent,
   ],
   imports: [
     CommonModule,

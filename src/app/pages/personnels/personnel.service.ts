@@ -53,7 +53,7 @@ export class PersonnelService {
     )
   }
 
-  searchParentList(term: string): Observable<Personnel[]> {
+  searchPersonnelList(term: string): Observable<Personnel[]> {
 
     if(term.length <= 1){
       return of([]);

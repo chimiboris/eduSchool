@@ -8,6 +8,8 @@ import { BoutonActionModule } from '../../composants/bouton-action/bouton-action
 import { EditParentComponent } from './edit-parent/edit-parent.component';
 import { ParentFormComponent } from './parent-form/parent-form.component';
 import { ParentDetailAllComponent } from './parent-detail-all/parent-detail-all.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SearchParentComponent } from './search-parent/search-parent.component';
 
 
 
@@ -19,10 +21,12 @@ import { ParentDetailAllComponent } from './parent-detail-all/parent-detail-all.
     EditParentComponent,
     ParentFormComponent,
     ParentDetailAllComponent,
+    SearchParentComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
+    MatPaginatorModule,
     BoutonActionModule
   ]
 })

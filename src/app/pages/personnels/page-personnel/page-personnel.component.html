@@ -3,11 +3,19 @@
         <div class="col-md-8 p-0">
             <h1>Liste du personnel administratif</h1>
         </div>
-        <div class="col-md-4">
-            <app-boutton-action
+        
+        <div class="d-flex ms-3">
+            <div class="col-md-10 me-5">
+                <app-search-personnel></app-search-personnel>
+            </div>
+
+            <div class="col-md-2 ms-3">
+                <app-boutton-action
                 (clickEvent)="nouveauPersonnel()"
-            ></app-boutton-action>
+                ></app-boutton-action>
+            </div>
         </div>
+        
     </div>
 
     <div class="col m-3" style="max-height: 550px; overflow-y:scroll;">

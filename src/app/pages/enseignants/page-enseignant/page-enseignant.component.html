@@ -3,12 +3,35 @@
         <div class="col-md-8 p-0">
             <h1>Liste des enseignants</h1>
         </div>
-        <div class="col-md-4">
-            <app-boutton-action
+        <div class="d-flex ms-3">
+            <div class="col-md-10 me-5">
+                <app-search-enseignant></app-search-enseignant>
+            </div>
+            <div class="col-md-2 ms-3">
+                <app-boutton-action
                 (clickEvent)="nouveauEnseignant()"
             ></app-boutton-action>
+            </div>
+            
         </div>
     </div>
+
+    <!-- <form class="card-body">
+        <div class="form-group">
+          <label for="search" class="form-label">Rechercher un enseignant</label>
+          <input
+            id="search"
+            type="text"
+            name="searchTerm"
+            class="form-control"
+            placeholder="Rechercher un pokémon"
+            #searchField
+            [value]="searchTerm()"
+            [disabled]="loading()"
+            (input)="searchTerm.set(searchField.value)"
+          />
+        </div>
+      </form> -->
 
     <div class="col m-3" style="max-height: 550px; overflow-y:scroll;">
         <app-detail-enseignant [enseignantList]="paginatedEnseignantList"></app-detail-enseignant> 

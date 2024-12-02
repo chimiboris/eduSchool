@@ -4,18 +4,18 @@
             <div class="card-content">
                 <div class="input-field">
                     <mat-form-field class="col-md-12">
-                        <mat-label>Rechercher un enseignant ici</mat-label>
+                        <mat-label>Rechercher un personnel ici</mat-label>
                         <input #searchBox 
                         (keyup)="search(searchBox.value)" matInput>
                     </mat-form-field>
                    
                     <div class="collection">
                         <a 
-                            *ngFor="let enseignant of enseignant$ | async"
-                            (click)="goToDetail(enseignant)"
+                            *ngFor="let personnel of personnel$ | async"
+                            (click)="goToDetail(personnel)"
                             class="collection-item"
                         >
-                            {{ enseignant.nom }}
+                            {{ personnel.nom }}
                         </a>
                     </div>
                 </div>

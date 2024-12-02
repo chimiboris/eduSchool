@@ -3,19 +3,35 @@
         <div class="col-md-8 p-0">
             <h1>Liste des parents</h1>
         </div>
-        <div class="col-md-4">
-            <app-boutton-action
+        <div class="d-flex ms-3">
+            <div class="col-md-10 me-5">
+                <app-search-parent></app-search-parent>
+            </div>
+            <div class="col-md-2 ms-3">
+                <app-boutton-action
                 (clickEvent)="nouveauParent()"
             ></app-boutton-action>
+            </div>
         </div>
     </div>
 
     <div class="col m-3" style="max-height: 550px; overflow-y:scroll;">
-        <app-detail-parent></app-detail-parent>     
+        <app-detail-parent [parentList]="paginatedParentList"></app-detail-parent>     
     </div>
 
-    <div class="row text-center">
-        <app-pagination></app-pagination>>
+    <div class="paginator">
+        <mat-paginator #paginator
+           class="demo-paginator"
+           (page)="handlePageEvent($event)"
+           [length]="length"
+           [pageSize]="pageSize"
+           [disabled]="disabled"
+           [showFirstLastButtons]="showFirstLastButtons"
+           [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+           [hidePageSize]="hidePageSize"
+           [pageIndex]="pageIndex"
+           aria-label="Select page">
+        </mat-paginator>
     </div>
 
 </div>

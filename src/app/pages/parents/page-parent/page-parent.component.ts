@@ -15,7 +15,7 @@ export class PageParentComponent implements OnInit {
   parent : Parent | undefined;
 
 
-  paginatedEleveList: Parent[] = [];
+  paginatedParentList: Parent[] = [];
 
   length = 0;
   pageSize = 10;
@@ -34,10 +34,10 @@ export class PageParentComponent implements OnInit {
   pageEvent: PageEvent | undefined;
   
   ngOnInit(): void {
-    
+    this.loadParents();
   }
 
-  loadEnseignants(): void {
+  loadParents(): void {
     this.parentService.getParentList().subscribe((parents: Parent[]) => {
       this.parentList = parents;
       this.length = parents.length;
@@ -54,7 +54,7 @@ export class PageParentComponent implements OnInit {
   updatePaginatedList(): void {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.paginatedEleveList = this.parentList!.slice(startIndex, endIndex);
+    this.paginatedParentList = this.parentList!.slice(startIndex, endIndex);
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {

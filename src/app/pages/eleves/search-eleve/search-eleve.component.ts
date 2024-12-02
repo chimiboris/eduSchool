@@ -19,6 +19,7 @@ export class SearchEleveComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    
     this.eleve$ = this.searchTerms.pipe(
       //{..."a"."ab"..."abz"."ab"..."abc".....}
       debounceTime(300),

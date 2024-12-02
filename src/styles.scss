@@ -46,3 +46,17 @@ button.example-custom-date-class {
     max-height: 50px;
     z-index: 0;
 }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}

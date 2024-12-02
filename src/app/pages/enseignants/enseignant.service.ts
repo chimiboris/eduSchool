@@ -7,6 +7,9 @@ import { Enseignant } from './enseignant';
   providedIn: 'root'
 })
 export class EnseignantService {
+  searchEleveList(term: string): any {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http: HttpClient) { }
 

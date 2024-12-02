@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, computed, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { EnseignantService } from '../enseignant.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Enseignant } from '../enseignant';
+import { toSignal } from '@angular/core/rxjs-interop';
+
 
 @Component({
   selector: 'app-page-enseignant',
